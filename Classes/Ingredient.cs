@@ -2,8 +2,17 @@
 {
     public abstract class Ingredient
     {
-        public int Index { get; set; }
+        /// <summary>
+        /// Id ингредиента
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
+        /// Название ингредиента
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Описание ингредиента
+        /// </summary>
         public string Description { get; set; }
     }
 }
