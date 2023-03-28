@@ -1,6 +1,3 @@
 /.vs
-/bin/Debug
 /obj
-/Properties
-/*.csproj
-/beerCreator.csproj.user
+/bin
