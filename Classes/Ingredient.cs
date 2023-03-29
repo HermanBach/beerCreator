@@ -14,5 +14,9 @@
         /// Описание ингредиента
         /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// Масса ингредиента
+        /// </summary>
+        public int Mass { get; set; }
     }
 }

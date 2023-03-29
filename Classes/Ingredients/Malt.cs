@@ -10,5 +10,6 @@
         /// Экстракт на с.в. солода
         /// </summary>
         public double Extract { get; set; }
+        
     }
 }

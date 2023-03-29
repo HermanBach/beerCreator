@@ -1,6 +1,6 @@
 ﻿namespace beerCreator.Classes.Ingredients
 {
-    public class ContainingSugar : Ingredient
+    public class ContainingSugar : Malt
     {
     }
 }
