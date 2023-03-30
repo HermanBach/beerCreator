@@ -16,5 +16,28 @@ namespace beerCreator.Controllers
             return result;
         }
 
+        [HttpPost]
+        public Malt GetMaltById( int id)
+        {
+            Malt result = new Malt();
+            return result;
+        }
+
+        [HttpPost]
+        public void CreaneNewMalt(Malt malt)
+        {
+            Malt[] result = new Malt[0];
+        }
+
+        [HttpPost]
+        public void EditMalt(Malt malt)
+        {
+            Malt[] result = new Malt[0];
+        }
+        [HttpPost]
+        public void DeleteMalt(int id)
+        {
+            Malt[] result = new Malt[0];
+        }
     }
 }
