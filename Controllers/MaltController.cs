@@ -10,7 +10,7 @@ namespace beerCreator.Controllers
     public class MaltController : ControllerBase
     {
         [HttpGet("GetAllMalts")]
-        public Malt[] GetAllMalts()
+        public List<Malt> GetAllMalts()
         {
             Malt[] result = new Malt[0];
             return result;
@@ -26,18 +26,18 @@ namespace beerCreator.Controllers
         [HttpPost("CreaneNewMalt")]
         public void CreaneNewMalt(Malt malt)
         {
-            Malt[] result = new Malt[0];
+
         }
 
         [HttpPost("EditMalt")]
         public void EditMalt(Malt malt)
         {
-            Malt[] result = new Malt[0];
+
         }
         [HttpDelete("DeleteMalt")]
         public void DeleteMalt(int id)
         {
-            Malt[] result = new Malt[0];
+
         }
     }
 }
