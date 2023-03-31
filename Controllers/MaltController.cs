@@ -9,32 +9,32 @@ namespace beerCreator.Controllers
     [ApiController]
     public class MaltController : ControllerBase
     {
-        [HttpPost]
+        [HttpGet("GetAllMalts")]
         public Malt[] GetAllMalts()
         {
             Malt[] result = new Malt[0];
             return result;
         }
 
-        [HttpPost]
+        [HttpGet("GetMaltById")]
         public Malt GetMaltById( int id)
         {
             Malt result = new Malt();
             return result;
         }
 
-        [HttpPost]
+        [HttpPost("CreaneNewMalt")]
         public void CreaneNewMalt(Malt malt)
         {
             Malt[] result = new Malt[0];
         }
 
-        [HttpPost]
+        [HttpPost("EditMalt")]
         public void EditMalt(Malt malt)
         {
             Malt[] result = new Malt[0];
         }
-        [HttpPost]
+        [HttpDelete("DeleteMalt")]
         public void DeleteMalt(int id)
         {
             Malt[] result = new Malt[0];
