@@ -27,8 +27,17 @@ namespace beerCreator.Models
         {
             using (IDbConnection db = new SqlConnection (connectionString))
             {
-                return db.Query<Malt>("SELECT * FROM Users");
+                return db.Query<Malt>("SELECT * FROM Users").ToList();
             }
+        }
+
+        public Malt GetMaltMyId(int Id)
+        {
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                return db.Query<Malt>("SELECT * FROM Malt  WHERE Id = @Id", new { id }).FirstOrDefault();
+            }
+
         }
     }
 }
