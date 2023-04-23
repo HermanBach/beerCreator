@@ -3,6 +3,14 @@
     public class Beer
     {
         /// <summary>
+        /// Название
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
+        /// Стиль Название
+        /// </summary>
+        public string Style { get; set; }
+        /// <summary>
         /// Начальная плотность
         /// </summary>
         public double InitialDensity { get; set; }
