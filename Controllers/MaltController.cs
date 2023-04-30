@@ -12,8 +12,8 @@ namespace beerCreator.Controllers
         [HttpGet("GetAllMalts")]
         public List<Malt> GetAllMalts()
         {
-            Malt[] result = new Malt[0];
-            return result;
+            List<Malt> malt = new List<Malt>();
+            return malt;
         }
 
         [HttpGet("GetMaltById")]

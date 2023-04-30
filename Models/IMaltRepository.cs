@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Dapper;
 using beerCreator.Classes.Ingredients;
-using Dapper;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace beerCreator.Models
 {
@@ -18,16 +16,16 @@ namespace beerCreator.Models
 
     public class MaltRepository : IMaltRepository
     {
-        string connectionString = null;
+        string? connectionString = null;
         public MaltRepository (string conStr)
         {
             connectionString = conStr;
         }
         public List<Malt> GetAllMalts()
         {
-            using (IDbConnection db = new SqlConnection (connectionString))
+            using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Malt>("SELECT * FROM Users").ToList();
+                return db.Query<Malt>("SELECT * FROM Malts").ToList();
             }
         }
 
