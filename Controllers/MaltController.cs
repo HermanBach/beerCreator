@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using beerCreator.Classes.Ingredients;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using beerCreator.Models;
 
 namespace beerCreator.Controllers
 {
@@ -9,35 +8,36 @@ namespace beerCreator.Controllers
     [ApiController]
     public class MaltController : ControllerBase
     {
+        MaltRepository rep = new MaltRepository("ConnectionString");
+
         [HttpGet("GetAllMalts")]
         public List<Malt> GetAllMalts()
         {
-            List<Malt> malt = new List<Malt>();
-            return malt;
+            return rep.GetAllMalts();
         }
 
         [HttpGet("GetMaltById")]
         public Malt GetMaltById( int id)
         {
-            Malt result = new Malt();
-            return result;
+            return rep.GetMaltById(id);
         }
 
         [HttpPost("CreaneNewMalt")]
         public void CreaneNewMalt(Malt malt)
         {
+            rep.CreaneNewMalt(malt);
 
         }
 
         [HttpPost("EditMalt")]
         public void EditMalt(Malt malt)
         {
-
+            rep.EditMalt(malt);
         }
         [HttpDelete("DeleteMalt")]
         public void DeleteMalt(int id)
         {
-
+            rep.DeleteMalt(id);
         }
     }
 }

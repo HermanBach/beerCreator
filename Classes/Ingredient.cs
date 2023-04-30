@@ -5,7 +5,7 @@
         /// <summary>
         /// Id ингредиента
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
         /// <summary>
         /// Название ингредиента
         /// </summary>
@@ -13,10 +13,7 @@
         /// <summary>
         /// Описание ингредиента
         /// </summary>
-        public string Description { get; set; }
-        /// <summary>
-        /// Масса ингредиента
-        /// </summary>
-        public int Mass { get; set; }
+        public string? Description { get; set; }
+
     }
 }
