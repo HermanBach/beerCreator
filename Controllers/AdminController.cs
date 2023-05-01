@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using beerCreator.Classes.Ingredients;
 using beerCreator.Models;
+
 
 namespace beerCreator.Controllers
 {
@@ -8,7 +8,7 @@ namespace beerCreator.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-        //TODO: вынести ConnectionString в appsettings.json
+            //TODO: вынести ConnectionString в appsettings.json
         readonly MaltRepository maltRepo = new(
             "data source = localhost; " +
             "initial catalog = BC; " +
@@ -31,6 +31,5 @@ namespace beerCreator.Controllers
             hopRepo.CteateNewTable();
         }
 
-        
     }
 }

@@ -1,3 +1,6 @@
+using beerCreator.Classes;
+using Microsoft.Extensions.Configuration;
+
 namespace beerCreator
 {
     public class Program
@@ -6,10 +9,10 @@ namespace beerCreator
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.Configure<ConnectionStringList>(builder.Configuration.GetSection("ConnectionStrings"));
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -25,7 +28,6 @@ namespace beerCreator
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
