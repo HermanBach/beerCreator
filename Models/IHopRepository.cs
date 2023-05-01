@@ -2,6 +2,7 @@
 using beerCreator.Classes.Ingredients;
 using System.Data;
 using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 
 
 namespace beerCreator.Models
@@ -13,6 +14,7 @@ namespace beerCreator.Models
         void CreaneNewHop(Hop hop);
         void EditHop(Hop hop);
         void DeleteHop(long Id);
+        void CteateNewTable();
     }
 
     public class HopRepository : IHopRepository
@@ -76,7 +78,22 @@ namespace beerCreator.Models
             {
                 db.Execute(sqlQuery, new { Id });
             }
+        }
+        public void CteateNewTable()
+        {
+            string sqlQuery =
+                "CREATE TABLE Hops(" +
+                "Id bigint IDENTITY(1, 1) PRIMARY KEY," +
+                "Name varchar(255) NOT NULL," +
+                "Description varchar(500)," +
+                "AlphaAcid float," +
+                "HopType int" +
+                ");";
 
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                db.Execute(sqlQuery);
+            }
         }
     }
 }

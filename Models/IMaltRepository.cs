@@ -3,7 +3,6 @@ using beerCreator.Classes.Ingredients;
 using System.Data;
 using Microsoft.Data.SqlClient;
 
-
 namespace beerCreator.Models
 {
     public interface IMaltRepository
@@ -13,6 +12,7 @@ namespace beerCreator.Models
         void CreaneNewMalt(Malt malt);
         void EditMalt(Malt malt);
         void DeleteMalt(long Id);
+        void CteateNewTable ();
     }
 
     public class MaltRepository : IMaltRepository
@@ -43,8 +43,8 @@ namespace beerCreator.Models
         public void CreaneNewMalt (Malt malt)
         {
             string sqlQuery = 
-                "INSERT INTO Malt (Name, Description, Color, Extract)" +
-                "VALUES ({ @Name }, { @Description }, { @Color }, { @Extract })";
+                "INSERT INTO Malts (Name, Description, Color, Extract)" +
+                "VALUES (@Name, @Description, @Color, @Extract)";
 
             using (IDbConnection db = new SqlConnection(connectionString))
             {
@@ -56,9 +56,9 @@ namespace beerCreator.Models
         {
             string sqlQuery =
                 "UPDATE Malt " +
-                "SET Name = @Name, " +
-                "Description = @Description, " +
-                "Color = @Color, " +
+                "SET Name = @Name" +
+                "Description = @Description" +
+                "Color = @Color" +
                 "Extract = @Extract" +
                 "WHERE Id = @Id";
 
@@ -78,6 +78,22 @@ namespace beerCreator.Models
                 db.Execute(sqlQuery, new { Id });
             }
 
+        }
+        public void CteateNewTable()
+        {
+            string sqlQuery =
+                "CREATE TABLE Malts(" +
+                "Id bigint IDENTITY(1, 1) PRIMARY KEY," +
+                "Name varchar(255) NOT NULL," +
+                "Description varchar(500)," +
+                "Color float," +
+                "Extract float" +
+                ");";
+
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                db.Execute(sqlQuery);
+            }
         }
     }
 }

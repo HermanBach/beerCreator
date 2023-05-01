@@ -1,4 +1,4 @@
-﻿using beerCreator.Classes.Ingredients.Enums;
+﻿using beerCreator.Enums;
 
 namespace beerCreator.Classes.Ingredients
 {

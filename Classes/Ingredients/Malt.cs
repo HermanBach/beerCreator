@@ -5,7 +5,7 @@
         /// <summary>
         /// Цветность солода European Brewing Convention
         /// </summary>
-        public string Color { get; set; }
+        public double Color { get; set; }
         /// <summary>
         /// Экстракт на с.в. солода
         /// </summary>

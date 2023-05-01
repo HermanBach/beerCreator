@@ -4,11 +4,11 @@ using beerCreator.Models;
 
 namespace beerCreator.Controllers
 {
-    [Route("api/malt/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class MaltController : ControllerBase
     {
-        readonly MaltRepository rep = new ("data source = localhost; initial catalog = beerCreator; persist security info=True; Integrated Security = SSPI; MultipleActiveResultSets = True; TrustServerCertificate = true;");
+        readonly MaltRepository rep = new ("data source = localhost; initial catalog = BC; persist security info=True; Integrated Security = SSPI; MultipleActiveResultSets = True; TrustServerCertificate = true;");
 
         [HttpGet("GetAllMalts")]
         public List<Malt> GetAllMalts()

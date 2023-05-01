@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace beerCreator.Classes.Ingredients.Enums
+namespace beerCreator.Enums
 {
     public enum Flocculation
     {
