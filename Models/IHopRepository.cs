@@ -36,7 +36,7 @@ namespace beerCreator.Models
             string sqlQuery = "SELECT * FROM Hops WHERE Id = @Id";
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query(sqlQuery, Id).FirstOrDefault();
+                return db.Query(sqlQuery, new { Id }).FirstOrDefault();
             }
         }
         public void CreaneNewHop(Hop hop)
@@ -47,7 +47,7 @@ namespace beerCreator.Models
 
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                db.Query(sqlQuery, hop).FirstOrDefault();
+                db.Execute(sqlQuery, hop);
 
             }
         }
@@ -63,7 +63,7 @@ namespace beerCreator.Models
 
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                db.Query(sqlQuery, hop).FirstOrDefault();
+                db.Execute(sqlQuery, hop);
             }
 
         }
@@ -74,7 +74,7 @@ namespace beerCreator.Models
                 "WHERE Id = @Id";
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                db.Query(sqlQuery, Id).FirstOrDefault();
+                db.Execute(sqlQuery, new { Id });
             }
 
         }
