@@ -1,41 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Dapper;
 using beerCreator.Classes.Ingredients;
-using Dapper;
+using System.Data;
+using Microsoft.Data.SqlClient;
+
 
 namespace beerCreator.Models
 {
-    interface IHopRepository
+    public interface IHopRepository
     {
         List<Hop> GetAllHops();
-        Hop GetHopById(int Id);
-        void CreaneNewHop(Hop malt);
-        void EditHop(Hop malt);
-        void DeleteHop(int Id);
+        Hop GetHopById(long Id);
+        void CreaneNewHop(Hop hop);
+        void EditHop(Hop hop);
+        void DeleteHop(long Id);
     }
+
     public class HopRepository : IHopRepository
     {
-        string connectionString = null;
+        string? connectionString = null;
         public HopRepository(string conStr)
         {
             connectionString = conStr;
         }
         public List<Hop> GetAllHops()
         {
+            string sqlQuery = "SELECT * FROM Hops";
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Malt>("SELECT * FROM Hop").ToList();
+                return db.Query<Hop>(sqlQuery).ToList();
             }
         }
 
-        public Malt GetHopById(int Id)
+        public Hop GetHopById(long Id)
         {
+            string sqlQuery = "SELECT * FROM Hops WHERE Id = @Id";
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Malt>("SELECT * FROM Hops  WHERE Id = @Id", new { id }).FirstOrDefault();
+                return db.Query(sqlQuery, Id).FirstOrDefault();
             }
+        }
+        public void CreaneNewHop(Hop hop)
+        {
+            string sqlQuery =
+                "INSERT INTO Malt (Name, Description, AlphaAcid, HopType)" +
+                "VALUES ({ @Name }, { @Description }, { @AlphaAcid }, { @HopType })";
+
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                db.Query(sqlQuery, hop).FirstOrDefault();
+
+            }
+        }
+        public void EditHop(Hop hop)
+        {
+            string sqlQuery =
+                "UPDATE Malt " +
+                "SET Name = @Name, " +
+                "Description = @Description, " +
+                "AlphaAcid = @AlphaAcid, " +
+                "HopType = @HopType" +
+                "WHERE Id = @Id";
+
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                db.Query(sqlQuery, hop).FirstOrDefault();
+            }
+
+        }
+        public void DeleteHop(long Id)
+        {
+            string sqlQuery =
+                "DELETE FROM Hop " +
+                "WHERE Id = @Id";
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                db.Query(sqlQuery, Id).FirstOrDefault();
+            }
+
         }
     }
 }

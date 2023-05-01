@@ -44,11 +44,11 @@ namespace beerCreator.Models
         {
             string sqlQuery = 
                 "INSERT INTO Malt (Name, Description, Color, Extract)" +
-                "VALUES ({ @Name }, { @Description }, { Color }, { @Extract })";
+                "VALUES ({ @Name }, { @Description }, { @Color }, { @Extract })";
 
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                db.Query<Malt>(sqlQuery, malt).FirstOrDefault();
+                db.Query(sqlQuery, malt).FirstOrDefault();
 
             }
         }
@@ -64,7 +64,7 @@ namespace beerCreator.Models
 
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                db.Query<Malt>(sqlQuery, malt).FirstOrDefault();
+                db.Query(sqlQuery, malt).FirstOrDefault();
             }
 
         }
@@ -75,7 +75,7 @@ namespace beerCreator.Models
                 "WHERE Id = @Id";
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                db.Query<Malt>(sqlQuery, Id).FirstOrDefault();
+                db.Query(sqlQuery, Id).FirstOrDefault();
             }
 
         }

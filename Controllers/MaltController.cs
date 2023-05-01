@@ -8,7 +8,7 @@ namespace beerCreator.Controllers
     [ApiController]
     public class MaltController : ControllerBase
     {
-        MaltRepository rep = new MaltRepository("ConnectionString");
+        readonly MaltRepository rep = new ("data source = localhost; initial catalog = beerCreator; persist security info=True; Integrated Security = SSPI; MultipleActiveResultSets = True; TrustServerCertificate = true;");
 
         [HttpGet("GetAllMalts")]
         public List<Malt> GetAllMalts()
