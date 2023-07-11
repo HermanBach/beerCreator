@@ -1,21 +1,8 @@
-<script>
-export default {
-  data() {
-    return {
-      maltName: '',
-      description: '',
-      color: '',
-      extract: ''
-    }
-  }
-}
-</script>
-
 <template>
   <table class="table">
     <tbody>
       <tr>
-        <td><input v-model="maltName" placeholder="Наименование" size="30"></td>
+        <td><input v-model="name" placeholder="Наименование" size="30"></td>
       </tr>
       <tr>
         <td><textarea v-model="description" placeholder="Описание" size="120"></textarea></td>
@@ -30,6 +17,30 @@ export default {
     <input type="submit" value="Сохранить" @click="send()">
   </table>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      maltName: '',
+      description: '',
+      color: '',
+      extract: ''
+    }
+  },
+  methods: {
+    send(){
+      const obj = {
+        Name: this.name,
+        Description: this.description,
+        Color: this.color,
+        Extract: this.extract
+      }
+      console.log(obj);
+    }
+  }
+}
+</script>
 
 <style scoped>
 .table {
