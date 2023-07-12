@@ -9,9 +9,8 @@ namespace beerCreator
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.Configure<ConnectionStringList>(builder.Configuration.GetSection("ConnectionStrings"));
-            // Add services to the container.
 
+            // Add services to the container.
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -34,4 +33,10 @@ namespace beerCreator
             app.Run();
         }
     }
+
+    var configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false)
+    .Build();
+    string? connectionString = configuration.GetConnectionString("DefaultConnection");
 }
