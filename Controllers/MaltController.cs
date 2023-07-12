@@ -9,7 +9,7 @@ namespace beerCreator.Controllers
     public class MaltController : ControllerBase
     {
 
-        readonly MaltRepository rep = new ("data source = localhost; initial catalog = BC; persist security info=True; Integrated Security = SSPI; MultipleActiveResultSets = True; TrustServerCertificate = true;");
+        readonly MaltRepository rep = new (new Program().GetDbOptions());
 
         [HttpGet("GetAllMalts")]
         public List<Malt> GetAllMalts()
