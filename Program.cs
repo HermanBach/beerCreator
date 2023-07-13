@@ -1,6 +1,3 @@
-using beerCreator.Classes;
-using Microsoft.Extensions.Configuration;
-
 public class Program
 {
     public static void Main(string[] args)

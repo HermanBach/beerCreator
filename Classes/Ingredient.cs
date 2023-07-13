@@ -5,7 +5,7 @@
         /// <summary>
         /// Id ингредиента
         /// </summary>
-        public long Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>
         /// Название ингредиента
         /// </summary>
