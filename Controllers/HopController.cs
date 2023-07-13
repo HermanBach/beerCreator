@@ -9,7 +9,7 @@ namespace beerCreator.Controllers
     public class HopController : ControllerBase
     {
 
-        readonly HopRepository rep = new("data source = localhost; initial catalog = BC; persist security info=True; Integrated Security = SSPI; MultipleActiveResultSets = True; TrustServerCertificate = true;");
+        readonly HopRepository rep = new(new Program().GetConnectionString());
 
         [HttpGet("GetAllHops")]
         public List<Hop> GetAllHops()

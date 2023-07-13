@@ -29,7 +29,7 @@ public class Program
 
         app.Run();
     }
-    public string GetDbOptions()
+    public string GetConnectionString()
     {
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
