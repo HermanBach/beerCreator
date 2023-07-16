@@ -44,8 +44,8 @@ namespace beerCreator.Models
         public void CreaneNewHop(Hop hop)
         {
             string sqlQuery =
-                "INSERT INTO Malt (Name, Description, AlphaAcid, HopType)" +
-                "VALUES ({ @Name }, { @Description }, { @AlphaAcid }, { @HopType })";
+                "INSERT INTO Hops (Name, Description, AlphaAcid, HopType)" +
+                "VALUES (@Name, @Description, @AlphaAcid, @HopType)";
 
             using (IDbConnection db = new SqlConnection(connectionString))
             {
@@ -56,7 +56,7 @@ namespace beerCreator.Models
         public void EditHop(Hop hop)
         {
             string sqlQuery =
-                "UPDATE Malt " +
+                "UPDATE Hops " +
                 "SET Name = @Name, " +
                 "Description = @Description, " +
                 "AlphaAcid = @AlphaAcid, " +
@@ -72,7 +72,7 @@ namespace beerCreator.Models
         public void DeleteHop(long Id)
         {
             string sqlQuery =
-                "DELETE FROM Hop " +
+                "DELETE FROM Hops " +
                 "WHERE Id = @Id";
             using (IDbConnection db = new SqlConnection(connectionString))
             {

@@ -45,7 +45,7 @@ namespace beerCreator.Models
         {
             string sqlQuery =
                 "INSERT INTO Yeasts (Name, Description, Flocculation, AlcoholTolerance)" +
-                "VALUES ({ @Name }, { @Description }, { @Flocculation }, { @AlcoholTolerance })";
+                "VALUES (@Name, @Description, @Flocculation, @AlcoholTolerance)";
 
             using (IDbConnection db = new SqlConnection(connectionString))
             {
