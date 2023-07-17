@@ -11,7 +11,7 @@ namespace beerCreator.Models
     {
         List<Yeast> GetAllYeasts();
         Yeast GetYeastById(long Id);
-        void CreaneNewYeast(Yeast yeast);
+        void CreateNewYeast(Yeast yeast);
         void EditYeast(Yeast yeast);
         void DeleteYeast(long Id);
         void CteateNewTable();
@@ -41,7 +41,7 @@ namespace beerCreator.Models
                 return db.Query<Yeast>(sqlQuery, new { Id }).FirstOrDefault();
             }
         }
-        public void CreaneNewYeast(Yeast yeast)
+        public void CreateNewYeast(Yeast yeast)
         {
             string sqlQuery =
                 "INSERT INTO Yeasts (Name, Description, Flocculation, AlcoholTolerance)" +

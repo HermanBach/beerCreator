@@ -23,10 +23,10 @@ namespace beerCreator.Controllers
             return rep.GetHopById(id);
         }
 
-        [HttpPost("CreaneNewHop")]
-        public void CreaneNewHop(Hop hop)
+        [HttpPost("CreateNewHop")]
+        public void CreateNewHop(Hop hop)
         {
-            rep.CreaneNewHop(hop);
+            rep.CreateNewHop(hop);
 
         }
 

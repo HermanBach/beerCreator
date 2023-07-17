@@ -9,7 +9,7 @@ namespace beerCreator.Models
     {
         List<Malt> GetAllMalts();
         Malt GetMaltById(long Id);
-        void CreaneNewMalt(Malt malt);
+        void CreateNewMalt(Malt malt);
         void EditMalt(Malt malt);
         void DeleteMalt(long Id);
         void CteateNewTable ();
@@ -40,7 +40,7 @@ namespace beerCreator.Models
             }
 
         }
-        public void CreaneNewMalt (Malt malt)
+        public void CreateNewMalt (Malt malt)
         {
             string sqlQuery = 
                 "INSERT INTO Malts (Name, Description, Color, Extract)" +

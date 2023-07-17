@@ -23,10 +23,10 @@ namespace beerCreator.Controllers
             return rep.GetYeastById(id);
         }
 
-        [HttpPost("CreaneNewYeast")]
-        public void CreaneNewYeast(Yeast yeast)
+        [HttpPost("CreateNewYeast")]
+        public void CreateNewYeast(Yeast yeast)
         {
-            rep.CreaneNewYeast(yeast);
+            rep.CreateNewYeast(yeast);
 
         }
 

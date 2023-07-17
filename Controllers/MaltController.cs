@@ -23,10 +23,10 @@ namespace beerCreator.Controllers
             return rep.GetMaltById(id);
         }
 
-        [HttpPost("CreaneNewMalt")]
-        public void CreaneNewMalt(Malt malt)
+        [HttpPost("CreateNewMalt")]
+        public void CreateNewMalt(Malt malt)
         {
-            rep.CreaneNewMalt(malt);
+            rep.CreateNewMalt(malt);
 
         }
 

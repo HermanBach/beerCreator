@@ -11,7 +11,7 @@ namespace beerCreator.Models
     {
         List<Hop> GetAllHops();
         Hop GetHopById(long Id);
-        void CreaneNewHop(Hop hop);
+        void CreateNewHop(Hop hop);
         void EditHop(Hop hop);
         void DeleteHop(long Id);
         void CteateNewTable();
@@ -41,7 +41,7 @@ namespace beerCreator.Models
                 return db.Query(sqlQuery, new { Id }).FirstOrDefault();
             }
         }
-        public void CreaneNewHop(Hop hop)
+        public void CreateNewHop(Hop hop)
         {
             string sqlQuery =
                 "INSERT INTO Hops (Name, Description, AlphaAcid, HopType)" +
