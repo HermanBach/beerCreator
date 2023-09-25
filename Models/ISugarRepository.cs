@@ -5,55 +5,55 @@ using System.Data;
 
 namespace beerCreator.Models
 {
-    public interface IAromaticRepository
+    public interface ISugarRepository
     {
-        List<Aromatic> GetAllAromatic();
-        Aromatic GetAromaticById(long Id);
-        void CreateNewAromatic(Aromatic aromatic);
-        void EditAromatic(Aromatic aromatic);
-        void DeleteAromatic(long Id);
+        List<Sugar> GetAllSugar();
+        Sugar GetSugarById(long Id);
+        void CreateNewSugar(Sugar sugar);
+        void EditSugar(Sugar sugar);
+        void DeleteSugar(long Id);
         void CteateNewTable();
     }
-    public class AromaticRepository : IAromaticRepository
+    public class SugarRepository : ISugarRepository
     {
         string? connectionString = null;
-        public AromaticRepository(string conStr)
+        public SugarRepository(string conStr)
         {
             connectionString = conStr;
         }
-        public List<Aromatic> GetAllAromatic()
+        public List<Sugar> GetAllSugar()
         {
-            string sqlQuery = "SELECT * FROM Aromatic";
+            string sqlQuery = "SELECT * FROM Sugar";
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Aromatic>(sqlQuery).ToList();
+                return db.Query<Sugar>(sqlQuery).ToList();
             }
         }
 
-        public Aromatic GetAromaticById(long Id)
+        public Sugar GetSugarById(long Id)
         {
-            string sqlQuery = "SELECT * FROM Aromatic WHERE Id = @Id";
+            string sqlQuery = "SELECT * FROM Sugar WHERE Id = @Id";
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query(sqlQuery, new { Id }).FirstOrDefault();
+                return db.Query<Sugar>(sqlQuery, new { Id }).FirstOrDefault();
             }
         }
-        public void CreateNewAromatic(Aromatic aromatic)
+        public void CreateNewSugar(Sugar sugar)
         {
             string sqlQuery =
-                "INSERT INTO Aromatic (Name, Description, SugarContent)" +
+                "INSERT INTO Sugar (Name, Description, SugarContent)" +
                 "VALUES (@Name, @Description, @SugarContent)";
 
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                db.Execute(sqlQuery, aromatic);
+                db.Execute(sqlQuery, sugar);
 
             }
         }
-        public void EditAromatic(Aromatic aromatic)
+        public void EditSugar(Sugar sugar)
         {
             string sqlQuery =
-                "UPDATE Aromatic " +
+                "UPDATE Sugar " +
                 "SET Name = @Name, " +
                 "Description = @Description, " +
                 "SugarContent = @SugarContent" +
@@ -61,14 +61,14 @@ namespace beerCreator.Models
 
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                db.Execute(sqlQuery, aromatic);
+                db.Execute(sqlQuery, sugar);
             }
 
         }
-        public void DeleteAromatic(long Id)
+        public void DeleteSugar(long Id)
         {
             string sqlQuery =
-                "DELETE FROM Aromatic " +
+                "DELETE FROM Sugar " +
                 "WHERE Id = @Id";
             using (IDbConnection db = new SqlConnection(connectionString))
             {
@@ -78,7 +78,7 @@ namespace beerCreator.Models
         public void CteateNewTable()
         {
             string sqlQuery =
-                "CREATE TABLE Aromatic(" +
+                "CREATE TABLE Sugar(" +
                 "Id bigint IDENTITY(1, 1) PRIMARY KEY," +
                 "Name varchar(255) NOT NULL," +
                 "Description varchar(500)," +
