@@ -5,6 +5,6 @@
         /// <summary>
         /// Процент сахара
         /// </summary>
-        public double SugarContent { get; set; }
+        public double? SugarContent { get; set; }
     }
 }
